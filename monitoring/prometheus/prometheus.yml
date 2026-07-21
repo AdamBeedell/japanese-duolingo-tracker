@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 60s       # you said load doesn't matter to you, so this is deliberately relaxed
+  evaluation_interval: 60s
+
+scrape_configs:
+
+  # Prometheus scraping itself. Rarely needs to change, so it stays static here.
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Everything else is discovered from the targets/ folder.
+  # To monitor something new: drop a .yml file in prometheus/targets/ (see targets/duolingo.yml
+  # for the format) and it'll be picked up within refresh_interval, no restart or reload needed.
+  - job_name: "file_sd"
+    file_sd_configs:
+      - files:
+          - "/etc/prometheus/targets/*.yml"
+        refresh_interval: 30s

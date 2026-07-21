@@ -1,0 +1,9 @@
+# Copy this file to something like myservice.yml inside prometheus/targets/ to add a new
+# thing to monitor. Prometheus polls this folder every 30s (see prometheus.yml) so there's
+# no restart or reload step - just add the file and wait ~30s.
+#
+# - targets:
+#     - "myservice:PORT"
+#   labels:
+#     job: myservice
+#     service: myservice

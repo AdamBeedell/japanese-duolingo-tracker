@@ -1,0 +1,8 @@
+# One file per monitored thing (or group of things) keeps additions clean and diff-friendly.
+# The "job" label here overrides the job_name in prometheus.yml, so each target group can
+# show up under its own job name in Prometheus/Grafana.
+- targets:
+    - "duolingo-exporter:8000"
+  labels:
+    job: duolingo-tracker
+    service: duolingo
