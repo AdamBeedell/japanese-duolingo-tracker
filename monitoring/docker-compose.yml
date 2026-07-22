@@ -57,4 +57,4 @@ services:
     networks:
       - monitor-net
     ports:
-      - "8000:8000"   # optional, only needed if you want to browse the raw metrics from the host
+      - "8010:8000"   # optional, only needed if you want to browse the raw metrics from the host
